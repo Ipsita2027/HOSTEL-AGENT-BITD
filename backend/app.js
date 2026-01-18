@@ -1,5 +1,4 @@
 import express from "express";
-import cors from "cors";
 import {queryRouter} from "./src/routes/get_meal_query.js";
 import { connectDB } from "./src/config/mongo.config.js";
 import dotenv from "dotenv";
