@@ -1,5 +1,7 @@
 import streamlit as st
 import requests
+import os
+API = os.getenv("BACK_END_URL", "http://localhost:4000")
 
 def bulletize(items):
     string=[]
@@ -44,7 +46,8 @@ if prompt:
         st.text(prompt)
     with st.spinner("Thinking..."):
         res = requests.get(
-            f"http://localhost:4000/meals?prompt={prompt}",
+            f"{API}/meals?prompt={prompt}",
+            timeout=30
         )
     
     result=res.json()
